@@ -32,12 +32,18 @@ func polymod(values []byte) uint32 {
 }
 
 func hrpExpand(hrp string) []byte {
+	// Correct Bech32 HRP expansion: high bits, then separator 0, then low bits
 	result := make([]byte, len(hrp)*2+1)
-	for i, c := range hrp {
-		result[i] = byte(c >> 5)
-		result[i+len(hrp)+1] = byte(c & 31)
+	// high bits
+	for i := 0; i < len(hrp); i++ {
+		result[i] = byte(hrp[i] >> 5)
 	}
+	// separator
 	result[len(hrp)] = 0
+	// low bits
+	for i := 0; i < len(hrp); i++ {
+		result[len(hrp)+1+i] = byte(hrp[i] & 31)
+	}
 	return result
 }
 

@@ -32,12 +32,11 @@ Please open an issue with:
 ## License
 
 By contributing, you agree your contributions will be licensed under the MIT License.
-```
 
 ---
 
 ## 🚀 Release & Verification Instructions
-```
+
 RELEASE STEPS (GitHub Web UI):
 
 1. Go to: https://github.com/njchilds90/go-cardano-asset
